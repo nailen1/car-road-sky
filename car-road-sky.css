@@ -22,14 +22,28 @@ audio {
   top: 10px;
   left: 10px;
 }
+
+.fa-music {
+  color: #fff;
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+.fa-envelope {
+  color: #fff;
+  position: absolute;
+  top: 110px;
+  left: 20px;
+}
+
 .night {
-  height: 80vh;
-  width: 70vw;
+  height: 90vh;
+  width: 90vw;
   /* border: 1px dashed red; */
-  margin: 5rem auto;
+  margin: 2rem auto;
   border-radius: 20px;
   border-top-left-radius: 30px;
-  background: url("/assets/Img_1.png");
+  background: url("Img_1.png");
   background-size: cover;
   position: relative;
   box-shadow: 1px 2px 60px rgba(0, 0, 0, 0.4);
@@ -38,7 +52,7 @@ audio {
 .surface {
   height: 140px;
   width: 500%;
-  background: url("/assets/Img_02.png");
+  background: url("Img_02.png");
   position: absolute;
   bottom: 20px;
   left: 0;
@@ -62,8 +76,44 @@ audio {
   height: 60px;
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0 0 0px #ffff5b, 0 0 60px #ffff5b, 0 0 80px #ffff5b,
+  box-shadow: 0 0 10px #ffff5b, 0 0 60px #ffff5b, 0 0 80px #ffff5b,
     0 0 100px #ffff5b;
+}
+
+.fa-star {
+  position: absolute;
+  top: calc(10% + 8% * var(--i));
+  right: calc(30% + 20% * var(--i) * var(--i) / 1.8);
+  color: #fff;
+  font-size: 1.5em;
+  filter: drop-shadow(0 0 10px #ffff5b);
+}
+.fa-star.falling {
+  animation: falling 1.5s linear 1s infinite;
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  font-size: 0.5em;
+}
+.fa-star.falling2 {
+  animation: falling 1.5s linear 1s infinite;
+  position: absolute;
+  top: -60px;
+  right: -160px;
+  font-size: 0.5em;
+}
+@keyframes falling {
+  100% {
+    transform: translateX(-1000px) translateY(300px);
+  }
+}
+.fa-star-of-life {
+  position: absolute;
+  top: calc(40% + 8% * var(--i));
+  left: calc(40% + 20% * var(--i));
+  color: #fff;
+  font-size: 0.3em;
+  filter: drop-shadow(0 0 10px #ffff5b);
 }
 .road {
   position: absolute;
@@ -80,8 +130,7 @@ audio {
   height: 5px;
   background: #0f0f17;
 }
-.road::after {
-  content: "";
+.road-line {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -98,6 +147,9 @@ audio {
   background-size: 20px;
   animation: animateRoad 0.2s linear infinite;
 }
+.road .fast {
+  animation: animateRoad 0.1s linear infinite;
+}
 @keyframes animateRoad {
   0% {
     background-position-x: 0;
@@ -113,11 +165,8 @@ audio {
   left: 12%;
   /* border: 1px dashed red; */
   animation: suspension 1s linear infinite;
+  transition: 0.5s ease-in-out;
 }
-.car img:active {
-  transform: rotate(-10deg);
-}
-
 @keyframes suspension {
   0% {
     transform: translateY(-1px);
@@ -129,30 +178,56 @@ audio {
     transform: translateY(-1px);
   }
 }
-.car img {
+.car .car-frame {
   width: 300px;
   filter: drop-shadow(-8px 5px 0 rgba(0, 0, 0, 0.5));
   transition: 0.5s;
+  cursor: pointer;
 }
-.front-wheel {
+.car .jump {
+  /* transform: translateY(-40px); */
+  animation: jump 2s linear;
+}
+@keyframes jump {
+  0% {
+    transform: rotate(0) translateY(0px);
+  }
+  25% {
+    transform: rotate(-3deg) translateY(-15px);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-50px);
+  }
+  60% {
+    transform: rotate(-2deg) translateY(-70px);
+  }
+  80% {
+    transform: rotate(5deg) translateY(-15px);
+  }
+  100% {
+    transform: rotate(1deg) translateY(0px);
+  }
+}
+.car .front-wheel {
   /* border: 1px dashed red; */
   position: absolute;
-  top: 79.5px;
+  top: 84px;
   right: 26px;
+  width: 30px;
   animation: wheelRotation 1s linear infinite;
 }
-.front-wheel img {
-  width: 32px;
+.front-wheel.hide,
+.rear-wheel.hide {
+  opacity: 0;
+  /* top: 43px; */
 }
-.rear-wheel {
+.car .rear-wheel {
   /* border: 1px dashed red; */
   position: absolute;
-  top: 85px;
-  left: 62px;
+  top: 89px;
+  left: 64px;
+  width: 30px;
   animation: wheelRotation 1s linear infinite;
-}
-.rear-wheel img {
-  width: 32px;
 }
 
 @keyframes wheelRotation {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,18 +11,56 @@
 <body>
     
     <div class="night">
-        <audio controls> <source src="/assets/a signal from outer space.mp3" type="audio/mp3"> </audio>
-
+        <audio id="bgm" controls  onloadeddata="setHalfVolume()"> <source src="a signal from outer space.mp3" type="audio/mp3"> </audio>
+        <i class="fa-solid fa-music"> BGM "A SIGNAL FROM OUTER SPACE"</i>
+        <i class="fa-solid fa-envelope">  Click and hold the car</i>
+        
         <div class="surface"></div>
 
-        <div class="road"></div>
+        <div class="road">
+            <div class="road-line"></div>
+        </div>
         <div class="sun"></div>
+        <i class="fa-solid fa-star" style="--i:0"></i>
+        <i class="fa-solid fa-star" style="--i:1"></i>
+        <i class="fa-solid fa-star" style="--i:2"></i>
+        <i class="fa-solid fa-star falling"></i>
+        <i class="fa-solid fa-star falling2"></i>
 
-        <div class="car" href="#">
-            <img src="car-01.png" alt="car">
-            <div class="front-wheel"><img src="front-wheel-frame.png" alt=""></div>
-            <div class="rear-wheel"><img src="rear-wheel-frame.png" alt=""></div>
+        <i class="fa-solid fa-star-of-life" style="--i:0"></i>
+        <i class="fa-solid fa-star-of-life" style="--i:1"></i>
+        <i class="fa-solid fa-star-of-life" style="--i:2"></i>
+        <div class="car">
+            <img class="car-frame" src="car-01.png" alt="car">
+            <!-- <div class="front-wheel"><img src="front-wheel-frame.png" alt=""></div> -->
+            <img class="front-wheel" src="front-wheel-frame.png" alt="front wheel">
+            <img class="rear-wheel" src="rear-wheel-frame.png" alt="rear wheel">
+            <!-- <div class="rear-wheel"><img src="rear-wheel-frame.png" alt=""></div> -->
         </div>
     </div>
+
+    <script src="https://kit.fontawesome.com/ea068852c5.js" crossorigin="anonymous"></script>
+
+    <script> 
+        document.querySelector('#bgm').addEventListener('play', setHalfVolume);
+        function setHalfVolume() {
+            document.getElementById('bgm').volume = 0.3;
+        }
+        
+        document.querySelector('.car').addEventListener('mousedown', holdClick);
+        document.querySelector('.car').addEventListener('mouseup', releaseClick); 
+        function holdClick(){
+            document.getElementsByClassName('car-frame')[0].classList.add('jump');
+            document.getElementsByClassName('road-line')[0].classList.add('fast');
+            document.getElementsByClassName('front-wheel')[0].classList.add('hide');
+            document.getElementsByClassName('rear-wheel')[0].classList.add('hide');
+        }
+        function releaseClick(){
+            document.getElementsByClassName('car-frame')[0].classList.remove('jump');
+            document.getElementsByClassName('road-line')[0].classList.remove('fast');
+            document.getElementsByClassName('front-wheel')[0].classList.remove('hide');
+            document.getElementsByClassName('rear-wheel')[0].classList.remove('hide');
+        }
+    </script>
 </body>
 </html>
