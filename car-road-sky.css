@@ -182,7 +182,8 @@ audio {
   width: 300px;
   filter: drop-shadow(-8px 5px 0 rgba(0, 0, 0, 0.5));
   transition: 0.5s;
-  cursor: pointer;
+  /* cursor: pointer; */
+  pointer-events: none;
 }
 .car .jump {
   /* transform: translateY(-40px); */
@@ -214,6 +215,7 @@ audio {
   top: 84px;
   right: 26px;
   width: 30px;
+  pointer-events: none;
   animation: wheelRotation 1s linear infinite;
 }
 .front-wheel.hide,
@@ -227,6 +229,7 @@ audio {
   top: 89px;
   left: 64px;
   width: 30px;
+  pointer-events: none;
   animation: wheelRotation 1s linear infinite;
 }
 
