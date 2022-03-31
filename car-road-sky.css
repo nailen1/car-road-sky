@@ -113,7 +113,7 @@ audio {
   left: calc(40% + 20% * var(--i));
   color: #fff;
   font-size: 0.3em;
-  filter: drop-shadow(0 0 10px #ffff5b);
+  filter: drop-shadow(0 0 6px #ffff5b);
 }
 .road {
   position: absolute;
