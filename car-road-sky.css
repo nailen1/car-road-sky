@@ -189,6 +189,10 @@ audio {
   /* transform: translateY(-40px); */
   animation: jump 2s linear;
 }
+.car:hover {
+  /* transform: translateY(-40px); */
+  animation: jump 2s linear;
+}
 @keyframes jump {
   0% {
     transform: rotate(0) translateY(0px);
@@ -232,7 +236,11 @@ audio {
   pointer-events: none;
   animation: wheelRotation 1s linear infinite;
 }
-
+.front-wheel:hover,
+.rear-wheel:hover {
+  opacity: 0;
+  /* top: 43px; */
+}
 @keyframes wheelRotation {
   0% {
     transform: rotate(0deg);
