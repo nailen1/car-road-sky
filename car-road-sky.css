@@ -3,19 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    225deg,
-    #410025 0%,
-    #562b7c 52%,
-    #2b86c5 100%
-  );
+  background-image: linear-gradient(225deg,
+      #410025 0%,
+      #562b7c 52%,
+      #2b86c5 100%);
   /* overflow-y: hidden; */
 }
+
 .night {
   height: 90vh;
   width: 90vw;
@@ -29,12 +29,14 @@ body {
   box-shadow: 1px 2px 60px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
+
 audio {
   position: absolute;
   top: 10px;
   left: 10px;
   z-index: 12;
 }
+
 .notice-text {
   position: relative;
   top: 70px;
@@ -42,12 +44,14 @@ audio {
   display: block;
   z-index: 12;
 }
+
 .notice-text i {
   color: #fff;
   font-size: 15px;
   margin: 5px 0;
   line-height: 15px;
 }
+
 .boost-btn {
   /* border: 1px dashed red; */
   position: absolute;
@@ -55,19 +59,23 @@ audio {
   left: 20px;
   z-index: 12;
 }
+
 .boost-btn .btn {
   color: #fff;
   font-size: 50px;
   margin: 5px 0;
   line-height: 50px;
 }
+
 .boost-btn .btn.active {
   transform: rotate(180deg);
 }
+
 .boost-btn .btn span {
   font-size: 15px;
   line-height: 15px;
 }
+
 .surface {
   height: 140px;
   width: 500%;
@@ -78,7 +86,9 @@ audio {
   background-repeat: repeat-x;
   animation: movingForward 8s linear infinite;
 }
+
 @keyframes movingForward {
+
   /* 0% {
     transform: translateX(0);
   } */
@@ -86,6 +96,7 @@ audio {
     transform: translateX(-2950px);
   }
 }
+
 .road {
   position: absolute;
   bottom: 0;
@@ -94,6 +105,7 @@ audio {
   height: 60px;
   background: #333;
 }
+
 .road::before {
   content: "";
   position: absolute;
@@ -101,31 +113,33 @@ audio {
   height: 5px;
   background: #0f0f17;
 }
+
 .road-line {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
   height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0,
-    transparent 50%,
-    #fff 50%,
-    #fff 100%
-  );
+  background: repeating-linear-gradient(90deg,
+      transparent 0,
+      transparent 50%,
+      #fff 50%,
+      #fff 100%);
   /* border: 1px dashed red; */
   background-size: 60px;
   animation: animateRoad 0.4s linear infinite;
 }
+
 @keyframes animateRoad {
   0% {
     background-position-x: 0;
   }
+
   100% {
     background-position-x: -60px;
   }
 }
+
 .fa-star {
   position: absolute;
   top: calc(10% + 8% * var(--i));
@@ -134,6 +148,7 @@ audio {
   font-size: 1.5em;
   filter: drop-shadow(0 0 10px #ffff5b);
 }
+
 .fa-star.falling {
   animation: falling 1.5s linear 1s infinite;
   position: absolute;
@@ -141,6 +156,7 @@ audio {
   right: 30px;
   font-size: 0.5em;
 }
+
 .fa-star.falling2 {
   animation: falling 1.5s linear 1s infinite;
   position: absolute;
@@ -148,11 +164,13 @@ audio {
   right: -160px;
   font-size: 0.5em;
 }
+
 @keyframes falling {
   100% {
     transform: translateX(-1000px) translateY(300px);
   }
 }
+
 .fa-star-of-life {
   position: absolute;
   top: calc(40% + 8% * var(--i));
@@ -161,6 +179,7 @@ audio {
   font-size: 0.3em;
   filter: drop-shadow(0 0 6px #ffff5b);
 }
+
 .night .sky {
   /* border: 3px dashed green; */
   position: absolute;
@@ -174,18 +193,26 @@ audio {
   opacity: 0;
   transition: opacity 5s;
 }
+
 .night .sky.active {
-  animation: skyOpacity 4s linear forwards; 
-  animation-delay: 2s; 
+  animation: skyOpacity 4s linear forwards;
+  animation-delay: 2s;
 }
+
 @keyframes skyOpacity {
   0% {
     opacity: 0;
-  }  
+  }
+
   100% {
     opacity: 1;
   }
 }
+
+.night .stars i {
+  z-index: 12;
+}
+
 .night .clouds {
   opacity: 0;
   position: absolute;
@@ -195,23 +222,30 @@ audio {
   z-index: 11;
   transition: 1s;
 }
+
 .night .clouds.active {
   animation: movingClouds 3s linear infinite;
-  animation-delay: calc(6s * var(--i));
+  animation-delay: calc(4s + 1s * var(--i));
   transition: 5s;
 }
+
 @keyframes movingClouds {
-  0% {opacity:0;
+  0% {
+    opacity: 0;
     transform: translate(150%, -100%);
   }
-  50% {opacity: 0;
+
+  50% {
+    opacity: 0;
     transform: translate(0, 0);
   }
+
   100% {
     opacity: 1;
     transform: translate(-150%, 100%);
   }
 }
+
 .night .clouds img {
   position: absolute;
   bottom: -25vh;
@@ -222,6 +256,7 @@ audio {
   transform: rotate(-20deg);
   z-index: 12;
 }
+
 .sun {
   position: absolute;
   top: 80px;
@@ -234,6 +269,33 @@ audio {
   z-index: 11;
   transition: 8s;
 }
+
+.sun {
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffff5b, 0 0 60px #ffff5b, 0 0 80px #ffff5b, 0 0 100px #ffff5b;
+  z-index: 11;
+  transition: 0s;
+}
+
+.sun.active {
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  width: 240px;
+  height: 240px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffff5b, 0 0 240px #ffff5b, 0 0 300px #ffff5b, 0 0 350px #ffff5b;
+  z-index: 11;
+  transition: 15s;
+}
+
 /* .sun.active {
   transition: 8s;
   transform: scale(1.8);
@@ -247,69 +309,88 @@ audio {
   transition: 5s ease-in-out;
   z-index: 12;
 }
+
 @keyframes suspension {
   0% {
     transform: translateY(-1px);
   }
+
   50% {
     transform: translateY(2px);
   }
+
   100% {
     transform: translateY(-1px);
   }
 }
+
 .car:hover {
   /* transform: translateY(-40px); */
   transition: 0.5s ease-in-out;
   animation: jump 2s linear;
 }
+
 @keyframes jump {
   0% {
     transform: rotate(0) translateY(0px);
   }
+
   25% {
     transform: rotate(-3deg) translateY(-15px);
   }
+
   50% {
     transform: rotate(-5deg) translateY(-50px);
   }
+
   60% {
     transform: rotate(-2deg) translateY(-70px);
   }
+
   80% {
     transform: rotate(5deg) translateY(-15px);
   }
+
   100% {
     transform: rotate(1deg) translateY(0px);
   }
 }
+
 .car.active {
   transition: 5s ease-in-out;
   animation: boostCar 6s linear forwards;
 }
+
 @keyframes boostCar {
   0% {
     transform: translateY(-1px) rotate(0deg);
   }
+
   25% {
     transform: translateX(25px) translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateX(50px) translateY(-25px) rotate(-10deg);
   }
+
   95% {
-    transform: translateX(140px) translateY(-80px) rotate(-20deg);
+    transform: translateX(140px) translateY(-80px) rotate(-15deg);
   }
+
   97% {
-    transform: translateX(147px) translateY(-78px) rotate(-19deg);
+    transform: translateX(147px) translateY(-78px) rotate(-17deg);
   }
+
   99% {
-    transform: translateX(151px) translateY(-82px) rotate(-18deg);
+    transform: translateX(151px) translateY(-82px) rotate(-16deg);
   }
+
   100% {
     transform: translateX(150px) translateY(-80px) rotate(-17deg);
   }
 }
+
 .car .car-frame {
   width: 300px;
   filter: drop-shadow(-8px 5px 0 rgba(0, 0, 0, 0.5));
@@ -317,6 +398,7 @@ audio {
   /* cursor: pointer; */
   pointer-events: none;
 }
+
 .car .front-wheel {
   /* border: 1px dashed red; */
   position: absolute;
@@ -326,6 +408,7 @@ audio {
   pointer-events: none;
   animation: wheelRotation 1s linear infinite;
 }
+
 .car .rear-wheel {
   /* border: 1px dashed red; */
   position: absolute;
@@ -335,16 +418,46 @@ audio {
   pointer-events: none;
   animation: wheelRotation 1s linear infinite;
 }
+
 .car.active .front-wheel,
 .car.active .rear-wheel {
   animation: wheelRotation .2s linear infinite;
 }
+
 @keyframes wheelRotation {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
+.car .fire-boost {
+  /* border: 1px dashed red; */
+  position: absolute;
+  width: 130px;
+  top: 70px;
+  left: -90px;
+  opacity: 0;
+  transition: 5s;
+}
+.car.active .fire-boost {
+  animation: fireBoost 1s linear infinite;
+  transition: 5s;
+}
+@keyframes fireBoost {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}
