@@ -175,41 +175,50 @@ audio {
   transition: opacity 5s;
 }
 .night .sky.active {
-  opacity: 1;
-  transition: opacity 7s;
+  animation: skyOpacity 4s linear forwards; 
+  animation-delay: 2s; 
+}
+@keyframes skyOpacity {
+  0% {
+    opacity: 0;
+  }  
+  100% {
+    opacity: 1;
+  }
 }
 .night .clouds {
   opacity: 0;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80%;
+  height: 60%;
   z-index: 11;
-  animation: movingClouds 2s linear infinite;
   transition: 1s;
 }
 .night .clouds.active {
-  opacity: 1;
+  animation: movingClouds 3s linear infinite;
+  animation-delay: calc(6s * var(--i));
   transition: 5s;
 }
 @keyframes movingClouds {
-  0% {
+  0% {opacity:0;
+    transform: translate(150%, -100%);
+  }
+  50% {opacity: 0;
     transform: translate(0, 0);
   }
-  50% {
-    transform: translate(5px, 4px);
-  }
   100% {
-    transform: translate(-2px, 0px);
+    opacity: 1;
+    transform: translate(-150%, 100%);
   }
 }
 .night .clouds img {
   position: absolute;
-  bottom: -20vh;
-  width: 130%;
-  height: 150%;
-  object-fit: cover;
-  left: calc(-10px * var(--i) + 20px);
+  bottom: -25vh;
+  width: 200%;
+  height: 200%;
+  object-fit: fill;
+  left: 0;
   transform: rotate(-20deg);
   z-index: 12;
 }
@@ -225,10 +234,10 @@ audio {
   z-index: 11;
   transition: 8s;
 }
-.sun.active {
+/* .sun.active {
   transition: 8s;
   transform: scale(1.8);
-}
+} */
 .car {
   position: absolute;
   bottom: 17px;
@@ -276,26 +285,29 @@ audio {
 }
 .car.active {
   transition: 5s ease-in-out;
-  animation: boostCar 5s linear forwards;
+  animation: boostCar 6s linear forwards;
 }
 @keyframes boostCar {
   0% {
     transform: translateY(-1px) rotate(0deg);
   }
+  25% {
+    transform: translateX(25px) translateY(0px) rotate(0deg);
+  }
   50% {
-    transform: translateX(50px) translateY(-15px) rotate(-10deg);
+    transform: translateX(50px) translateY(-25px) rotate(-10deg);
   }
   95% {
-    transform: translateX(150px) translateY(-60px) rotate(-20deg);
+    transform: translateX(140px) translateY(-80px) rotate(-20deg);
   }
   97% {
-    transform: translateX(147px) translateY(-58px) rotate(-19deg);
+    transform: translateX(147px) translateY(-78px) rotate(-19deg);
   }
   99% {
-    transform: translateX(151px) translateY(-62px) rotate(-18deg);
+    transform: translateX(151px) translateY(-82px) rotate(-18deg);
   }
   100% {
-    transform: translateX(150px) translateY(-60px) rotate(-17deg);
+    transform: translateX(150px) translateY(-80px) rotate(-17deg);
   }
 }
 .car .car-frame {
