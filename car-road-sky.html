@@ -11,25 +11,39 @@
 <body>
     
     <div class="night">
-        <audio id="bgm" controls  onloadeddata="setHalfVolume()"> <source src="a signal from outer space.mp3" type="audio/mp3"> </audio>
-        <i class="fa-solid fa-music"> BGM "A SIGNAL FROM OUTER SPACE"</i>
-        <i class="fa-solid fa-envelope">  Click and hold the car</i>
-        
+        <div>
+            <audio id="bgm" controls  onloadeddata="setHalfVolume()"> <source src="a signal from outer space.mp3" type="audio/mp3"> </audio>
+        </div>
+        <div class="notice-text">
+            <i class="fa-solid fa-music"> BGM "A SIGNAL FROM OUTER SPACE"</i>
+            <br>
+            <i class="fa-solid fa-envelope">  TAP CAR TO JUMP</i>
+        </div>
+        <div class="boost-btn">
+            <input type="checkbox" name="switch" class="btn">
+        </div>
         <div class="surface"></div>
-
         <div class="road">
             <div class="road-line"></div>
         </div>
-        <div class="sun"></div>
+        
         <i class="fa-solid fa-star" style="--i:0"></i>
         <i class="fa-solid fa-star" style="--i:1"></i>
         <i class="fa-solid fa-star" style="--i:2"></i>
         <i class="fa-solid fa-star falling"></i>
         <i class="fa-solid fa-star falling2"></i>
-
         <i class="fa-solid fa-star-of-life" style="--i:0"></i>
         <i class="fa-solid fa-star-of-life" style="--i:1"></i>
         <i class="fa-solid fa-star-of-life" style="--i:2"></i>
+        
+        <div class="sky"></div>
+        <div class="clouds">
+            <img src="cloud1.png" style="--i:0" alt="">
+            <img src="cloud2.png" style="--i:1" alt="">
+            <img src="cloud3.png" style="--i:2" alt="">
+        </div>
+        <div class="sun"></div>
+        
         <div class="car">
             <img class="car-frame" src="car-01.png" alt="car">
             <!-- <div class="front-wheel"><img src="front-wheel-frame.png" alt=""></div> -->
@@ -46,21 +60,22 @@
         function setHalfVolume() {
             document.getElementById('bgm').volume = 0.3;
         }
-        
-        document.querySelector('.car').addEventListener('mousedown', holdClick);
-        document.querySelector('.car').addEventListener('mouseup', releaseClick); 
-        function holdClick(){
-            document.getElementsByClassName('car-frame')[0].classList.add('jump');
-            document.getElementsByClassName('road-line')[0].classList.add('fast');
-            document.getElementsByClassName('front-wheel')[0].classList.add('hide');
-            document.getElementsByClassName('rear-wheel')[0].classList.add('hide');
-        }
-        function releaseClick(){
-            document.getElementsByClassName('car-frame')[0].classList.remove('jump');
-            document.getElementsByClassName('road-line')[0].classList.remove('fast');
-            document.getElementsByClassName('front-wheel')[0].classList.remove('hide');
-            document.getElementsByClassName('rear-wheel')[0].classList.remove('hide');
-        }
+
+        let btn = document.querySelector('.btn');
+        let car = document.querySelector('.car');
+        let sun = document.querySelector('.sun');
+        let sky = document.querySelector('.sky');
+        let clouds = document.querySelector('.clouds');
+
+
+        const turnOn = function() {
+            btn.classList.toggle('active');
+            car.classList.toggle('active');
+            sun.classList.toggle('active');
+            sky.classList.toggle('active');
+            clouds.classList.toggle('active');
+        } 
+        btn.onclick = turnOn;
     </script>
 </body>
 </html>
